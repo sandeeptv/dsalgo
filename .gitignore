@@ -1,0 +1,16 @@
+.classpath
+.settings
+.project
+.checkstyle
+.metadata
+target
+*.log
+out
+*.bak
+*.iml
+.idea/*
+**/conf*/keysecure/
+lc-merged.properties
+lc-local.properties
+.DS_Store
+lc-local.properties
