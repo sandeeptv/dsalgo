@@ -18,6 +18,7 @@ public class BuySellStock {
         assertEquals(495, buySellStock.maxProfit2(new int[]{468, 335, 1, 170, 225, 479, 359, 492, 496, 443, 8, 1}));
     }
 
+    //This is to do multiple transactions, the idea is to buy and sell whenever i < i +1
     public int maxProfit(int[] prices) {
 
         int max = 0;
@@ -31,6 +32,7 @@ public class BuySellStock {
 
     }
 
+    //This is to return the max profit along with the buy and sell position
     public int maxProfit2 (int[] input) {
 
 
@@ -62,5 +64,29 @@ public class BuySellStock {
         System.out.println(minPos);
         System.out.println(maxPos);
         return maxProfit;
+    }
+
+
+    /**
+     * Here, the oneBuy keeps track of the lowest price, and sellOne keeps track of the biggest profit we could get.
+     * Then the tricky part comes, how to handle the buyTwo? Suppose in real life, you have bought and sold a stock
+     * and made $100 dollar profit. When you want to purchase a stock which costs you $300 dollars, how would you think this?
+     * You must think, um, I have made $100 profit, so I think this $300 dollar stock is worth $200 FOR ME since I have hold $100 for free.
+     * There we go, you got the idea how we calculate buyTwo!! We just minimize the cost again!! The sellTwo is just making as much profit as possible.
+     * @param prices
+     * @return
+     */
+    public int maxProfit3(int[] prices) {
+        int buyOne = Integer.MAX_VALUE;
+        int sellOne = 0;
+        int buyTwo = Integer.MAX_VALUE;
+        int sellTwo = 0;
+        for(int p : prices) {
+            buyOne = Math.min(buyOne, p);
+            sellOne = Math.max(sellOne, p - buyOne);
+            buyTwo = Math.min(buyTwo, p - sellOne);
+            sellTwo = Math.max(sellTwo, p - buyTwo);
+        }
+        return sellTwo;
     }
 }
