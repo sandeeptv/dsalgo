@@ -42,4 +42,20 @@ public class TreeBFSwithLevel {
             val = x;
         }
     }
+
+//    public List<Double> averageOfLevels(TreeNode root) {
+//
+//        Queue<TreeNode> queue = new LinkedList<>();
+//
+//        if(root!=null){
+//            queue.add(root);
+//        }
+//
+//        while (queue.isEmpty()){
+//            TreeNode node = queue.poll();
+//
+//
+//        }
+//
+//    }
 }
