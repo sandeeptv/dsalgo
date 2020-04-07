@@ -17,7 +17,11 @@ public class WordBreak {
     }
 
     public static boolean wordBreak(String s, Set<String> dict) {
-        if (dict.contains(s)) return true;
+
+        if (dict.contains(s)){
+            return true;
+        }
+
         Queue<Integer> queue = new LinkedList<Integer>();
         queue.offer(0);
         // use a set to record checked index to avoid repeated work.
@@ -36,5 +40,22 @@ public class WordBreak {
             }
         }
         return false;
+    }
+
+    public static boolean wordBreakDp(String s, Set<String> dict){
+        boolean[] f = new boolean[s.length() + 1];
+
+        f[0] = true;
+
+        for(int i=1; i <= s.length(); i++){
+            for(int j=0; j < i; j++){
+                if(f[j] && dict.contains(s.substring(j, i))){
+                    f[i] = true;
+                    break;
+                }
+            }
+        }
+
+        return f[s.length()];
     }
 }

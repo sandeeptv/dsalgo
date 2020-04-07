@@ -1,10 +1,9 @@
 package com.dsalgo.problems;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Twilio {
 
@@ -91,5 +90,61 @@ public class Twilio {
             }
         }
         return false;
+    }
+
+
+
+
+        /**  1. You are given the following unordered list of source and destination airports for a set of routes.
+         * Find the path though the airports and output.
+
+         Input:
+         SFO → JFK
+         PER → SYD
+         SYD → SF
+         JFK → LHR
+         HKG → SNG
+         SNG → HND
+
+         OutPut:
+         PER → SYD → SFO → JFK → LHR
+
+         HKG → SNG → HND
+         */
+
+
+
+        private static void findPathRec(Map<String, String> routes, String src, String dest){
+
+        System.out.println(src);
+        if(routes.get(src) != dest){
+            findPathRec(routes, routes.get(src), dest);
+        }else {
+            System.out.println(dest);
+
+        }
+
+
+    }
+
+        private static List<String> findPath(Map<String, String> routes, String src, String dest){
+
+        List<String> path = new ArrayList<String>();
+
+        path.add(src);
+        for(int i =0 ; i<routes.size(); i++ ){
+
+            if(routes.get(src).equals(dest)){
+
+                path.add(routes.get(src));
+                break;
+            }else {
+
+                path.add(routes.get(src));
+                src = routes.get(src);
+            }
+        }
+
+        return path;
     }
 }
