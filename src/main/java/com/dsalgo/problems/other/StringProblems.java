@@ -1,5 +1,8 @@
 package com.dsalgo.problems.other;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringProblems {
 
 	private static boolean[] used;
@@ -13,6 +16,9 @@ public class StringProblems {
 		System.out.println("status ="+isPalindrome("1aba1"));
 		int res = strToInt("123");
 		intToStr(res);
+
+		List<String> strings = stringPermutation("abc", "", new ArrayList<String>());
+		strings.size();
 	}
 
 	private static void permutation(String prefix, String str){
@@ -42,7 +48,33 @@ public class StringProblems {
 		out.setLength( out.length() - 1 );
 		}
 	}
-	
+
+	public static List<String> stringPermutation(String str, String ans, List<String> res)
+	{
+
+		// If string is empty
+		if (str.length() == 0) {
+
+			res.add(ans);
+		}
+
+		for (int i = 0; i < str.length(); i++) {
+
+			// ith character of str
+			char ch = str.charAt(i);
+
+			// Rest of the string after excluding
+			// the ith character
+			String ros = str.substring(0, i) +
+					str.substring(i + 1);
+
+			// Recurvise call
+			stringPermutation(ros, ans + ch, res);
+		}
+		return res;
+	}
+
+
 	public static int strToInt(String str) {
 		int i = 0, num = 0;
 		boolean isNeg = false;

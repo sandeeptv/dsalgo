@@ -33,7 +33,7 @@ public class Graph {
         node.visit();
         System.out.print(node.name + " ");
 
-        Queue<GraphNode> allNeighbors = node.adjacentNodes;
+        List<GraphNode> allNeighbors = node.adjacentNodes;
         if (allNeighbors == null)
             return;
 
