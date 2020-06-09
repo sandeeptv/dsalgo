@@ -1,4 +1,4 @@
-package com.dsalgo.problems.other;
+package com.dsalgo.problems.Strings;
 
 import java.util.HashMap;
 

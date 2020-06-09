@@ -1,4 +1,4 @@
-package com.dsalgo.problems.other;
+package com.dsalgo.problems.Strings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -97,7 +97,8 @@ public class StringProblems {
 		final int MAX_DIGITS =10;
 		int i = 0;
 		boolean isNeg = false;
-		/* Buffer big enough for largest int and - sign */char[] temp = new char[MAX_DIGITS + 1];
+		/* Buffer big enough for largest int and - sign */
+		char[] temp = new char[MAX_DIGITS + 1];
 		/* Check to see if the number is negative */
 		if (num < 0) {
 			num = -num;

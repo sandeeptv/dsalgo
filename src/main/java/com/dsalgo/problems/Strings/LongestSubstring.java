@@ -1,4 +1,4 @@
-package com.dsalgo.problems.other;
+package com.dsalgo.problems.Strings;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +13,8 @@ public class LongestSubstring {
      Explanation: The answer is "abc", with the length of 3.
      */
     public static void main(String[] args) {
-        lengthOfLongestSubstring("abcabcbb");
+
+        System.out.println(lengthOfLongestSubstring("abcdefgah"));
     }
 
     public static int lengthOfLongestSubstring(String s) {
