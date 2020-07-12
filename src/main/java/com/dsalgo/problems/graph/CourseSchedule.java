@@ -35,7 +35,9 @@ public class CourseSchedule {
         int[] order = schedule.findOrder(4, new int[][]{{1, 0}, {2, 0}, {3, 1}, {3, 2}});
         System.out.println(Arrays.toString(order));
     }
+
 private int N = 0;
+
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         int[] result = new int[numCourses];
         Course[] courses = new Course[numCourses];
